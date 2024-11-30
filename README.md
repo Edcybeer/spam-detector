@@ -1,2 +1,0 @@
-"# RepositoryName" 
-"# spam-detector" 
