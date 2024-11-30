@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Email Spam Classifier</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Momentum</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<!-- Main Content: Email Spam Classifier -->
+<div class="content">
+    <h2>Email Spam Classifier</h2>
+    <form method="post" action="/predict" id="email-form">
+        <textarea rows="12" cols="60" name="content" placeholder="Enter your email here" autocomplete="off" id="email-content" class="input-field">{{ email }}</textarea>
+        
+        <div class="form-actions">
+            <button type="submit" id="submit-btn" class="btn-primary">Classify</button>
+            <a href="/" class="reset-link">Reset</a>
+        </div>
+    </form>
+
+    <div id="loading-spinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Classifying...</p>
+    </div>
+
+    <div id="prediction-result" class="prediction">
+        {% if prediction %}
+            {% if prediction == 1 %}
+                <h3 class="spam">Spam</h3>
+            {% else %}
+                <h3 class="not-spam">Not Spam</h3>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+
+<!-- Call to Action -->
+<section class="cta">
+    <h3>Want to Learn More?</h3>
+    <button class="btn-primary">Book a Demo</button>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© Momentum 2024. All rights reserved.</p>
+    <ul>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+    </ul>
+</footer>
+</body>
+
+</html>
